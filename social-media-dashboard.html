@@ -1108,10 +1108,34 @@ function resetMonth() {
     };
     localStorage.setItem(KEY, JSON.stringify(a));
   }
+
+  // ─── Seed Mar 2026 data ─────────────────────────────────────────────────────
+  if (!a['2026-03']) {
+    a['2026-03'] = {
+      fb: {
+        impressions: 9021, impressionsGrowthPct: -90.8,
+        reach: 2506, reachGrowthPct: -85.2,
+        interactions: 179, interactionsGrowthPct: 0,
+        linkClicks: 4, linkClicksGrowthPct: -96,
+        postsPublished: 0, storiesPublished: 0
+      },
+      ig: {
+        impressions: 11456, impressionsGrowthPct: -24.3,
+        reach: 1700, reachGrowthPct: -48.7,
+        interactions: 314, interactionsGrowthPct: -9,
+        linkClicks: 0, linkClicksGrowthPct: -100,
+        postsPublished: 0, storiesPublished: 0
+      },
+      items: [],
+      refImage: null,
+      notes: 'Data sourced from Meta Business Suite — March 1–31, 2026.\n\n⚠️ No paid ads ran in March. Year-on-year and month-on-month percentage drops (especially Facebook views ↓90.8%, viewers ↓85.2%, link clicks ↓96%) are heavily inflated by the absence of paid promotion — February had a boosted post that drove the bulk of those numbers. Organic Facebook views were 9,021 (↓39.7% vs organic-only Feb baseline). Instagram views 11,456 all organic (↓17.9% organic vs Feb organic). Content interactions held steady: FB 179 (0%), IG 314 (↓9%).'
+    };
+    localStorage.setItem(KEY, JSON.stringify(a));
+  }
 })();
 
 // ─── Boot ─────────────────────────────────────────────────────────────────────
-cur = new Date(2026, 1, 1);
+cur = new Date(2026, 2, 1);
 const _ghCfg   = getGH();
 const _ghPages = detectGHPages();
 
